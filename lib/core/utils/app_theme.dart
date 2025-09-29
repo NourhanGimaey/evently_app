@@ -1,0 +1,54 @@
+import 'package:evently/core/utils/app_colors.dart';
+import 'package:flutter/material.dart';
+
+final ThemeData lightTheme = ThemeData(
+  appBarTheme: AppBarTheme(backgroundColor: AppColors.lightTheme),
+  scaffoldBackgroundColor: AppColors.lightTheme,
+  textTheme: TextTheme(
+    titleMedium: TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.w700,
+      color: AppColors.blue,
+    ),
+    bodyMedium: TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
+      color: AppColors.black,
+    ),
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: WidgetStatePropertyAll(AppColors.blue),
+      foregroundColor: WidgetStatePropertyAll(AppColors.white),
+      shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
+        RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(16)),
+      ),
+    ),
+  ),
+);
+
+final ThemeData darkTheme = ThemeData(
+  appBarTheme: AppBarTheme(backgroundColor: AppColors.darkTheme),
+  scaffoldBackgroundColor: AppColors.darkTheme,
+  textTheme: TextTheme(
+    titleMedium: TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.w700,
+      color: AppColors.blue,
+    ),
+    bodyMedium: TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
+      color: AppColors.white,
+    ),
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: WidgetStatePropertyAll(AppColors.blue),
+      foregroundColor: WidgetStatePropertyAll(AppColors.white),
+      shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
+        RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(16)),
+      ),
+    ),
+  ),
+);
