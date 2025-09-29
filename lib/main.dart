@@ -1,7 +1,13 @@
 import 'package:evently/core/utils/app_colors.dart';
-import 'package:evently/screens/intro.dart';
-import 'package:evently/screens/onboarding.dart';
+import 'package:evently/core/utils/app_routes.dart';
+import 'package:evently/core/utils/app_theme.dart';
+import 'package:evently/ui/auth/screens/forgot_password_screen.dart';
+import 'package:evently/ui/onboarding/screens/intro_screen.dart';
+import 'package:evently/ui/auth/screens/login_screen.dart';
+import 'package:evently/ui/onboarding/screens/onboarding_screen.dart';
+import 'package:evently/ui/auth/screens/register_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,37 +21,22 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Evently App',
-      theme: ThemeData(
-        scaffoldBackgroundColor: AppColors.lightTheme,
-        textTheme: TextTheme(
-          titleMedium: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w700,
-            color: AppColors.blue,
-          ),
-          bodyMedium: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            color: AppColors.black,
-          ),
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ButtonStyle(
-            backgroundColor: WidgetStatePropertyAll(AppColors.blue),
-            foregroundColor: WidgetStatePropertyAll(AppColors.white),
-            fixedSize: WidgetStatePropertyAll(Size.fromHeight(56)),
-            shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadiusGeometry.circular(16),
-              ),
-            ),
-          ),
-        ),
-      ),
-      initialRoute: OnboardingScreen.routeName,
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [Locale('en'), Locale('ar')],
+      locale: Locale('en'),
+
+      theme: lightTheme,
+      initialRoute: AppRoutes.onboardingScreen.routeName,
       routes: {
-        OnboardingScreen.routeName: (context) => OnboardingScreen(),
-        IntroScreen.routeName: (context) => IntroScreen(),
+        AppRoutes.onboardingScreen.routeName: (context) => OnboardingScreen(),
+        AppRoutes.introScreen.routeName: (context) => IntroScreen(),
+        AppRoutes.loginScreen.routeName: (context) => LoginScreen(),
+        AppRoutes.registerScreen.routeName: (context) => RegisterScreen(),
+        AppRoutes.forgotPassword.routeName: (context) => ForgotPassword(),
       },
     );
   }
