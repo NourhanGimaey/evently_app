@@ -9,29 +9,18 @@ class ForgotPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Forgot Password',
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
             spacing: 16,
             children: [
-              Row(
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(
-                        context,
-                        AppRoutes.loginScreen.routeName,
-                      );
-                    },
-                    icon: Icon(Icons.arrow_back_ios),
-                  ),
-                  Text(
-                    'Forgot Password',
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                ],
-              ),
               Expanded(child: Image.asset(AppImages.resetPassword)),
               CustomElevatedButton(onPress: () {}, text: 'Reset Password'),
             ],

@@ -16,15 +16,6 @@ final ThemeData lightTheme = ThemeData(
       color: AppColors.black,
     ),
   ),
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ButtonStyle(
-      backgroundColor: WidgetStatePropertyAll(AppColors.blue),
-      foregroundColor: WidgetStatePropertyAll(AppColors.white),
-      shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
-        RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(16)),
-      ),
-    ),
-  ),
 );
 
 final ThemeData darkTheme = ThemeData(
@@ -40,15 +31,6 @@ final ThemeData darkTheme = ThemeData(
       fontSize: 16,
       fontWeight: FontWeight.w500,
       color: AppColors.white,
-    ),
-  ),
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ButtonStyle(
-      backgroundColor: WidgetStatePropertyAll(AppColors.blue),
-      foregroundColor: WidgetStatePropertyAll(AppColors.white),
-      shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
-        RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(16)),
-      ),
     ),
   ),
 );
