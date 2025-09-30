@@ -1,4 +1,3 @@
-import 'package:evently/core/utils/app_colors.dart';
 import 'package:evently/core/utils/app_routes.dart';
 import 'package:evently/core/utils/app_theme.dart';
 import 'package:evently/ui/auth/screens/forgot_password_screen.dart';

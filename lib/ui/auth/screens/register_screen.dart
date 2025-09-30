@@ -1,7 +1,9 @@
 import 'package:evently/core/utils/app_assets.dart';
+import 'package:evently/core/utils/app_colors.dart';
 import 'package:evently/core/utils/app_routes.dart';
 import 'package:evently/core/widgets/custom_button.dart';
 import 'package:evently/core/widgets/custom_textField.dart';
+import 'package:evently/core/widgets/toggle_theme.dart';
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -25,28 +27,36 @@ class RegisterScreen extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * .2,
               ),
               CustomTextField(
-                cistomPrefixIcon: Icon(Icons.email),
-                customHintText: 'Name',
+                customLabel: 'Name',
+                customPrefixIcon: Icon(Icons.person),
                 customKeyboardType: TextInputType.text,
                 customTextInputAction: TextInputAction.next,
               ),
               CustomTextField(
-                cistomPrefixIcon: Icon(Icons.lock_open_rounded),
-                customHintText: 'Email',
+                customLabel: 'Email',
+                customPrefixIcon: Icon(Icons.email_rounded),
                 customKeyboardType: TextInputType.text,
                 customTextInputAction: TextInputAction.next,
               ),
               CustomTextField(
-                cistomPrefixIcon: Icon(Icons.lock_open_rounded),
-                customHintText: 'Password',
+                customLabel: 'Phone',
+                customPrefixIcon: Icon(Icons.phone_iphone),
+                customKeyboardType: TextInputType.number,
+                customTextInputAction: TextInputAction.next,
+              ),
+              CustomTextField(
+                customLabel: 'Password',
+                isPassword: true,
+                customPrefixIcon: Icon(Icons.lock_open_rounded),
                 customKeyboardType: TextInputType.text,
                 customTextInputAction: TextInputAction.next,
               ),
               CustomTextField(
-                cistomPrefixIcon: Icon(Icons.lock_open_rounded),
-                customHintText: 'Re-enter Password',
+                customLabel: 'Re-enter Password',
+                isPassword: true,
+                customPrefixIcon: Icon(Icons.lock_open_rounded),
                 customKeyboardType: TextInputType.text,
-                customTextInputAction: TextInputAction.next,
+                customTextInputAction: TextInputAction.done,
               ),
               CustomElevatedButton(onPress: () {}, text: 'Create Account'),
               Row(
@@ -62,13 +72,16 @@ class RegisterScreen extends StatelessWidget {
                     },
                     child: Text(
                       'Login',
-                      style: Theme.of(
-                        context,
-                      ).textTheme.titleMedium?.copyWith(fontSize: 16),
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontSize: 16,
+                        decoration: TextDecoration.underline,
+                        decorationColor: AppColors.blue,
+                      ),
                     ),
                   ),
                 ],
               ),
+              CustomToggleTheme(),
             ],
           ),
         ),
