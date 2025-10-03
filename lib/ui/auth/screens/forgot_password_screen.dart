@@ -1,6 +1,5 @@
 import 'package:evently/core/utils/app_assets.dart';
-import 'package:evently/core/utils/app_routes.dart';
-import 'package:evently/core/widgets/custom_button.dart';
+import 'package:evently/core/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPassword extends StatelessWidget {

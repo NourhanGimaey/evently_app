@@ -1,7 +1,7 @@
 import 'package:evently/core/utils/app_assets.dart';
 import 'package:evently/core/utils/app_routes.dart';
-import 'package:evently/core/widgets/custom_button.dart';
-import 'package:evently/core/widgets/toggle_theme.dart';
+import 'package:evently/core/widgets/custom_elevated_button.dart';
+import 'package:evently/ui/onboarding/widgets/toggle_switch.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -36,7 +36,7 @@ class OnboardingScreen extends StatelessWidget {
                       'Language',
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
-                    CustomToggleTheme(),
+                    CustomToggleSwitch(),
                   ],
                 ),
                 const SizedBox(height: 16),
@@ -47,7 +47,7 @@ class OnboardingScreen extends StatelessWidget {
                       'Theme',
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
-                    CustomToggleTheme(language: false),
+                    CustomToggleSwitch(language: false),
                   ],
                 ),
                 const SizedBox(height: 16),
