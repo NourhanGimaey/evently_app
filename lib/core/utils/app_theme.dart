@@ -1,7 +1,7 @@
 import 'package:evently/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
-final ThemeData lightTheme = ThemeData(
+final ThemeData appLightTheme = ThemeData(
   appBarTheme: AppBarTheme(backgroundColor: AppColors.lightTheme),
   scaffoldBackgroundColor: AppColors.lightTheme,
   textTheme: TextTheme(
@@ -18,7 +18,7 @@ final ThemeData lightTheme = ThemeData(
   ),
 );
 
-final ThemeData darkTheme = ThemeData(
+final ThemeData appDarkTheme = ThemeData(
   appBarTheme: AppBarTheme(backgroundColor: AppColors.darkTheme),
   scaffoldBackgroundColor: AppColors.darkTheme,
   textTheme: TextTheme(

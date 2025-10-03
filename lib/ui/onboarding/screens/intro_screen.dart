@@ -1,4 +1,4 @@
-import 'package:evently/core/models/intro_screen.dart';
+import 'package:evently/ui/onboarding/models/intro_screen.dart';
 import 'package:evently/core/utils/app_assets.dart';
 import 'package:evently/core/utils/app_colors.dart';
 import 'package:evently/core/utils/app_routes.dart';

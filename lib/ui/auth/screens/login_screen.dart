@@ -1,9 +1,9 @@
 import 'package:evently/core/utils/app_assets.dart';
 import 'package:evently/core/utils/app_colors.dart';
 import 'package:evently/core/utils/app_routes.dart';
-import 'package:evently/core/widgets/custom_button.dart';
-import 'package:evently/core/widgets/custom_textField.dart';
-import 'package:evently/core/widgets/toggle_theme.dart';
+import 'package:evently/core/widgets/custom_elevated_button.dart';
+import 'package:evently/ui/auth/widget/custom_textField.dart';
+import 'package:evently/ui/onboarding/widgets/toggle_switch.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -129,7 +129,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              CustomToggleTheme(),
+              CustomToggleSwitch(),
             ],
           ),
         ),

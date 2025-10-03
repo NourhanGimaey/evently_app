@@ -1,6 +1,7 @@
 import 'package:evently/core/utils/app_routes.dart';
 import 'package:evently/core/utils/app_theme.dart';
 import 'package:evently/ui/auth/screens/forgot_password_screen.dart';
+import 'package:evently/ui/home/screens/home_screen.dart';
 import 'package:evently/ui/onboarding/screens/intro_screen.dart';
 import 'package:evently/ui/auth/screens/login_screen.dart';
 import 'package:evently/ui/onboarding/screens/onboarding_screen.dart';
@@ -27,8 +28,9 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: [Locale('en'), Locale('ar')],
       locale: Locale('en'),
-
-      theme: lightTheme,
+      themeMode: ThemeMode.system,
+      theme: appLightTheme,
+      darkTheme: appDarkTheme,
       initialRoute: AppRoutes.onboardingScreen.routeName,
       routes: {
         AppRoutes.onboardingScreen.routeName: (context) => OnboardingScreen(),
@@ -36,6 +38,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.loginScreen.routeName: (context) => LoginScreen(),
         AppRoutes.registerScreen.routeName: (context) => RegisterScreen(),
         AppRoutes.forgotPassword.routeName: (context) => ForgotPassword(),
+        AppRoutes.homeScreen.routeName: (context) => HomeScreen(),
       },
     );
   }
