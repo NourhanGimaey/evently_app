@@ -83,7 +83,7 @@ class RegisterScreen extends StatelessWidget {
                       Text("Already have an account?"),
                       TextButton(
                         onPressed: () {
-                          Navigator.pushNamed(
+                          Navigator.pushReplacementNamed(
                             context,
                             AppRoutes.loginScreen.routeName,
                           );
