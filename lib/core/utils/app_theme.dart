@@ -15,6 +15,11 @@ final ThemeData appLightTheme = ThemeData(
       fontWeight: FontWeight.w500,
       color: AppColors.black,
     ),
+    bodySmall: TextStyle(
+      fontSize: 12,
+      color: AppColors.white,
+      fontWeight: FontWeight.w700,
+    ),
   ),
 );
 
@@ -31,6 +36,11 @@ final ThemeData appDarkTheme = ThemeData(
       fontSize: 16,
       fontWeight: FontWeight.w500,
       color: AppColors.white,
+    ),
+    bodySmall: TextStyle(
+      fontSize: 14,
+      color: AppColors.white,
+      fontWeight: FontWeight.w400,
     ),
   ),
 );

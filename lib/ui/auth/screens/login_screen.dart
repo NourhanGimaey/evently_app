@@ -52,7 +52,9 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              CustomElevatedButton(onPress: () {}, text: 'Login'),
+              CustomElevatedButton(onPress: () {
+                Navigator.pushReplacementNamed(context, AppRoutes.homeScreen.routeName);
+              }, text: 'Login'),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

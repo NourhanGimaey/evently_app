@@ -9,6 +9,6 @@
 //   Widget build(BuildContext context) {
 //     return 
 //     AnimatedToggleSwitch.rolling(
-//       // current: current, values: values);
+//       current: value, values: [0,1]);
 //   }
 // }
