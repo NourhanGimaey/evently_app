@@ -3,6 +3,7 @@ import 'package:evently/core/utils/app_colors.dart';
 import 'package:evently/core/utils/app_routes.dart';
 import 'package:evently/core/widgets/custom_elevated_button.dart';
 import 'package:evently/ui/auth/widget/custom_textField.dart';
+import 'package:evently/ui/onboarding/widgets/language_animated_toggle_switch.dart';
 import 'package:evently/ui/onboarding/widgets/toggle_switch.dart';
 import 'package:flutter/material.dart';
 
@@ -100,7 +101,7 @@ class RegisterScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  CustomToggleSwitch(),
+                  LanguageAnimatedToggleSwitch(),
                 ],
               ),
             ),

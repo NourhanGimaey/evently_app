@@ -18,7 +18,7 @@ import 'app_localizations_en.dart';
 /// `supportedLocales` list. For example:
 ///
 /// ```dart
-/// import 'l10n/app_localizations.dart';
+/// import 'localization/app_localizations.dart';
 ///
 /// return MaterialApp(
 ///   localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -97,6 +97,36 @@ abstract class AppLocalizations {
     Locale('ar'),
     Locale('en'),
   ];
+
+  /// No description provided for @personalizeYourExperience.
+  ///
+  /// In en, this message translates to:
+  /// **'Personalize Your Experience'**
+  String get personalizeYourExperience;
+
+  /// No description provided for @intro.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.'**
+  String get intro;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get theme;
+
+  /// No description provided for @letsStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s Start'**
+  String get letsStart;
 }
 
 class _AppLocalizationsDelegate

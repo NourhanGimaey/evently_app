@@ -1,6 +1,9 @@
 import 'package:evently/core/utils/app_assets.dart';
 import 'package:evently/core/utils/app_routes.dart';
 import 'package:evently/core/widgets/custom_elevated_button.dart';
+import 'package:evently/l10n/localization/app_localizations.dart';
+import 'package:evently/ui/onboarding/widgets/language_animated_toggle_switch.dart';
+import 'package:evently/ui/onboarding/widgets/theme_animated_toggle_switch.dart';
 import 'package:evently/ui/onboarding/widgets/toggle_switch.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +12,7 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppLocalizations locale = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(title: Image.asset(AppImages.logo, width: 160)),
       body: Column(
@@ -20,12 +24,12 @@ class OnboardingScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Personalize Your Experience',
+                  locale.personalizeYourExperience,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.',
+                  locale.intro,
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 const SizedBox(height: 16),
@@ -33,10 +37,10 @@ class OnboardingScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Language',
+                      locale.language,
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
-                    CustomToggleSwitch(),
+                    LanguageAnimatedToggleSwitch(),
                   ],
                 ),
                 const SizedBox(height: 16),
@@ -44,16 +48,16 @@ class OnboardingScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Theme',
+                      locale.theme,
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
-                    CustomToggleSwitch(language: false),
+                    ThemeAnimatedToggleSwitch(),
                   ],
                 ),
                 const SizedBox(height: 16),
                 SafeArea(
                   child: CustomElevatedButton(
-                    text: "Let's Start",
+                    text: locale.letsStart,
                     onPress: () {
                       Navigator.pushNamed(
                         context,

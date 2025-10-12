@@ -7,6 +7,15 @@ class AppImages {
   static const String authLogo = 'assets/images/auth_logo.png';
   static const String resetPassword = 'assets/images/reset_passwrod.png';
   static const String googleLogo = 'assets/images/google_logo.png';
+  static const String sport = 'assets/images/sport.png';
+  static const String birthday = 'assets/images/birthday.png';
+  static const String meeting = 'assets/images/meeting.png';
+  static const String gaming = 'assets/images/gaming.png';
+  static const String eating = 'assets/images/eating.png';
+  static const String holiday = 'assets/images/holiday.png';
+  static const String exhibition = 'assets/images/exhibition.png';
+  static const String workshop = 'assets/images/workshop.png';
+  static const String bookclub = 'assets/images/bookclub.png';
 }
 
 class AppIcons {

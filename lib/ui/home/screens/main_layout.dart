@@ -1,6 +1,6 @@
 import 'package:evently/core/utils/app_colors.dart';
 import 'package:evently/ui/home/provider/main_layout_provider.dart';
-import 'package:evently/ui/home/widgets/home_bottom_appBar.dart';
+import 'package:evently/ui/home/widgets/main_layout_bottom_appBar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,7 +17,7 @@ class MainLayout extends StatelessWidget {
             return provider.tabs[provider.currentIndex];
           },
         ),
-        bottomNavigationBar: const HomeBottomAppbar(),
+        bottomNavigationBar: const MainLayoutBottomAppbar(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
           backgroundColor: AppColors.blue,
