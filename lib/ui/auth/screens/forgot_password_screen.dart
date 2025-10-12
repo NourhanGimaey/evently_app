@@ -1,5 +1,6 @@
 import 'package:evently/core/utils/app_assets.dart';
 import 'package:evently/core/widgets/custom_elevated_button.dart';
+import 'package:evently/l10n/localization/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPassword extends StatelessWidget {
@@ -7,10 +8,12 @@ class ForgotPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppLocalizations locale = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Forgot Password',
+          locale.forgetPassword,
           style: Theme.of(context).textTheme.titleMedium,
         ),
       ),
@@ -21,7 +24,7 @@ class ForgotPassword extends StatelessWidget {
             spacing: 16,
             children: [
               Expanded(child: Image.asset(AppImages.resetPassword)),
-              CustomElevatedButton(onPress: () {}, text: 'Reset Password'),
+              CustomElevatedButton(onPress: () {}, text: locale.resetPassword),
             ],
           ),
         ),

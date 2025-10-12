@@ -2,9 +2,9 @@ import 'package:evently/core/utils/app_assets.dart';
 import 'package:evently/core/utils/app_colors.dart';
 import 'package:evently/core/utils/app_routes.dart';
 import 'package:evently/core/widgets/custom_elevated_button.dart';
+import 'package:evently/l10n/localization/app_localizations.dart';
 import 'package:evently/ui/auth/widget/custom_textField.dart';
 import 'package:evently/ui/onboarding/widgets/language_animated_toggle_switch.dart';
-import 'package:evently/ui/onboarding/widgets/toggle_switch.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -12,6 +12,8 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppLocalizations locale = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -25,13 +27,13 @@ class LoginScreen extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * .2,
               ),
               CustomTextField(
-                customLabel: 'Email',
+                customLabel: locale.email,
                 customPrefixIcon: Icon(Icons.email),
                 customKeyboardType: TextInputType.text,
                 customTextInputAction: TextInputAction.next,
               ),
               CustomTextField(
-                customLabel: 'Password',
+                customLabel: locale.password,
                 isPassword: true,
                 customPrefixIcon: Icon(Icons.lock_open_rounded),
                 customKeyboardType: TextInputType.text,
@@ -45,7 +47,7 @@ class LoginScreen extends StatelessWidget {
                   );
                 },
                 child: Text(
-                  'Forgot Passwrod?',
+                  locale.forgotPassword,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontSize: 16,
                     decoration: TextDecoration.underline,
@@ -53,13 +55,19 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              CustomElevatedButton(onPress: () {
-                Navigator.pushReplacementNamed(context, AppRoutes.homeScreen.routeName);
-              }, text: 'Login'),
+              CustomElevatedButton(
+                onPress: () {
+                  Navigator.pushReplacementNamed(
+                    context,
+                    AppRoutes.homeScreen.routeName,
+                  );
+                },
+                text: locale.login,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Don't have an account?"),
+                  Text(locale.dontHaveaccount),
                   TextButton(
                     onPressed: () {
                       Navigator.pushNamed(
@@ -68,7 +76,7 @@ class LoginScreen extends StatelessWidget {
                       );
                     },
                     child: Text(
-                      'Create account',
+                      locale.createAccount,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         fontSize: 16,
                         decoration: TextDecoration.underline,
@@ -90,7 +98,7 @@ class LoginScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
-                      'Or',
+                      locale.or,
                       style: Theme.of(
                         context,
                       ).textTheme.bodyMedium?.copyWith(color: AppColors.blue),
@@ -124,7 +132,7 @@ class LoginScreen extends StatelessWidget {
                     children: [
                       Image.asset(AppImages.googleLogo, width: 26, height: 26),
                       Text(
-                        'Login with Google',
+                        locale.loginWithGoogle,
                         style: Theme.of(context).textTheme.titleMedium
                             ?.copyWith(fontWeight: FontWeight.w500),
                       ),

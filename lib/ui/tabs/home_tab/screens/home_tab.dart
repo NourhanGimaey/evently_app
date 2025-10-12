@@ -1,5 +1,6 @@
 import 'package:evently/core/utils/app_assets.dart';
 import 'package:evently/core/utils/app_colors.dart';
+import 'package:evently/l10n/localization/app_localizations.dart';
 import 'package:evently/ui/tabs/home_tab/provider/home_tab_provider.dart';
 import 'package:evently/ui/tabs/home_tab/widget/home_custom_tab_widget.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,8 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppLocalizations locale = AppLocalizations.of(context)!;
+
     return Consumer<HomeTabProvider>(
       builder: (context, provider, child) {
         return Scaffold(

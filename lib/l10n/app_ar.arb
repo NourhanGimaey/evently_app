@@ -1,8 +1,22 @@
 {
-    "personalizeYourExperience" : "خصص تجربتك",
-    "intro" : "اختر المظهر واللغة المفضلة لديك لتبدأ بتجربة مريحة ومصممة خصيصاً تناسب أسلوبك.",
-    "language" : "اللغة",
-    "theme" : "المظهر",
-    "letsStart" : "لنبدأ"
-
+    "personalizeYourExperience": "خصص تجربتك",
+    "intro": "اختر المظهر واللغة المفضلة لديك لتبدأ بتجربة مريحة ومصممة خصيصاً تناسب ذوقك.",
+    "language": "اللغة",
+    "theme": "المظهر/السمة",
+    "letsStart": "لنبدأ",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "forgotPassword": "هل نسيت كلمة المرور؟",
+    "login": "تسجيل الدخول",
+    "dontHaveaccount": "ليس لديك حساب؟",
+    "createAccount": "إنشاء حساب",
+    "or": "أو",
+    "loginWithGoogle": "تسجيل الدخول باستخدام جوجل",
+    "register": "تسجيل",
+    "name": "الاسم",
+    "phone": "الهاتف/الجوال",
+    "reEnterPassword": "أعد إدخال كلمة المرور",
+    "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+    "forgetPassword": "نسيت كلمة المرور",
+    "resetPassword": "إعادة تعيين كلمة المرور"
 }
