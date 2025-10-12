@@ -5,7 +5,7 @@ import 'package:evently/ui/tabs/profile_tab/screens/profile_tab.dart';
 import 'package:flutter/material.dart';
 
 class MainLayoutProvider extends ChangeNotifier {
-  int currentIndex = 1;
+  int currentIndex = 0;
   List<Widget> tabs = [HomeTab(), MapsTab(), FavoriteTab(), ProfileTab()];
 
   void changeTab(int index) {
