@@ -1,3 +1,4 @@
+import 'package:evently/ui/auth/provider/auth_provider.dart';
 import 'package:evently/ui/auth/screens/forgot_password_screen.dart';
 import 'package:evently/ui/auth/screens/login_screen.dart';
 import 'package:evently/ui/auth/screens/register_screen.dart';
@@ -24,8 +25,14 @@ enum AppRoutes {
   static Map<String, Widget Function(BuildContext)> routes = {
     AppRoutes.onboardingScreen.routeName: (context) => const OnboardingScreen(),
     AppRoutes.introScreen.routeName: (context) => const IntroScreen(),
-    AppRoutes.loginScreen.routeName: (context) => const LoginScreen(),
-    AppRoutes.registerScreen.routeName: (context) => RegisterScreen(),
+    AppRoutes.loginScreen.routeName: (context) => ChangeNotifierProvider(
+      create: (context) => AuthProvider(),
+      child: const LoginScreen(),
+    ),
+    AppRoutes.registerScreen.routeName: (context) => ChangeNotifierProvider(
+      create: (context) => AuthProvider(),
+      child: const RegisterScreen(),
+    ),
     AppRoutes.forgotPassword.routeName: (context) => const ForgotPassword(),
     AppRoutes.homeScreen.routeName: (context) => MultiProvider(
       providers: [

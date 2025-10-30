@@ -1,8 +1,22 @@
 {
-    "personalizeYourExperience" : "Personalize Your Experience",
-    "intro" : "Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.",
-    "language" : "Language",
-    "theme" : "Theme",
-    "letsStart" : "Let's Start"
-
+    "personalizeYourExperience": "Personalize Your Experience",
+    "intro": "Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.",
+    "language": "Language",
+    "theme": "Theme",
+    "letsStart": "Let's Start",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot Passwrod?",
+    "login": "Login",
+    "dontHaveaccount": "Don't have an account?",
+    "createAccount": "Create Account",
+    "or": "Or",
+    "loginWithGoogle": "Login with Google",
+    "register": "Register",
+    "name": "Name",
+    "phone": "Phone",
+    "reEnterPassword": "Re-Enter Password",
+    "alreadyHaveAccount": "Already have an account?",
+    "forgetPassword" : "Forget Password",
+    "resetPassword": "Reset Password"
 }

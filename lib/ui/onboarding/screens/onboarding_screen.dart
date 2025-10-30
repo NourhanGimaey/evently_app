@@ -4,7 +4,6 @@ import 'package:evently/core/widgets/custom_elevated_button.dart';
 import 'package:evently/l10n/localization/app_localizations.dart';
 import 'package:evently/ui/onboarding/widgets/language_animated_toggle_switch.dart';
 import 'package:evently/ui/onboarding/widgets/theme_animated_toggle_switch.dart';
-import 'package:evently/ui/onboarding/widgets/toggle_switch.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatelessWidget {
