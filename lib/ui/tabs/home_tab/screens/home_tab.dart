@@ -3,6 +3,7 @@ import 'package:evently/core/utils/app_colors.dart';
 import 'package:evently/l10n/localization/app_localizations.dart';
 import 'package:evently/ui/tabs/home_tab/provider/home_tab_provider.dart';
 import 'package:evently/ui/tabs/home_tab/widget/home_custom_tab_widget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:icons_plus/icons_plus.dart';
@@ -14,6 +15,11 @@ class HomeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppLocalizations locale = AppLocalizations.of(context)!;
+
+    // Retrieve the current authenticated user
+    final user = FirebaseAuth.instance.currentUser;
+    // Get the display name, or use 'Guest' as a fallback
+    final userName = user?.displayName ?? 'Guest';
 
     return Consumer<HomeTabProvider>(
       builder: (context, provider, child) {
@@ -39,7 +45,7 @@ class HomeTab extends StatelessWidget {
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
                   ),
                   Text(
-                    'User Name',
+                    userName,
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
                   ),
                   Row(

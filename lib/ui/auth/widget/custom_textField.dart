@@ -6,6 +6,7 @@ class CustomTextField extends StatefulWidget {
   final TextInputType customKeyboardType;
   final TextInputAction customTextInputAction;
   final Widget? customPrefixIcon;
+  final TextEditingController controller;
   final bool isName;
   final bool isEmail;
   final bool isPhone;
@@ -17,6 +18,7 @@ class CustomTextField extends StatefulWidget {
     required this.customTextInputAction,
     required this.customPrefixIcon,
     required this.customLabel,
+    required this.controller,
     this.isName = false,
     this.isEmail = false,
     this.isPhone = false,
@@ -72,7 +74,6 @@ String? passwordValidator(String? value) {
   if (!value.contains(RegExp(r'[0-9]'))) {
     return 'Password must contain at least one number';
   }
-  // This RegEx matches common special characters. Adjust as needed.
   if (!value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
     return 'Password must contain at least one special character';
   }
@@ -84,6 +85,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       textInputAction: widget.customTextInputAction,
       keyboardType: widget.customKeyboardType,
       obscureText: widget.isPassword ? isObscureText : !isObscureText,

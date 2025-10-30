@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
       title: 'Evently App',
       themeMode: themeProvider.themeMode,
       theme: appLightTheme,
-      darkTheme: appDarkTheme,
+      darkTheme: appDarkTheme,  
 
       locale: languageProvider.appLocale,
       localizationsDelegates: [
