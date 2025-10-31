@@ -1,5 +1,6 @@
 import 'package:evently/core/utils/app_assets.dart';
 import 'package:evently/core/utils/app_colors.dart';
+import 'package:evently/l10n/localization/app_localizations.dart';
 import 'package:evently/ui/home/provider/main_layout_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -10,6 +11,7 @@ class MainLayoutBottomAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppLocalizations locale = AppLocalizations.of(context)!;
     return Consumer<MainLayoutProvider>(
       builder: (context, provider, child) {
         return BottomAppBar(
@@ -32,7 +34,7 @@ class MainLayoutBottomAppbar extends StatelessWidget {
                           : AppIcons.homeIc,
                     ),
                   ),
-                  Text('Home', style: Theme.of(context).textTheme.bodySmall),
+                  Text(locale.home, style: Theme.of(context).textTheme.bodySmall),
                 ],
               ),
               Column(
@@ -47,7 +49,7 @@ class MainLayoutBottomAppbar extends StatelessWidget {
                           : AppIcons.locationIc,
                     ),
                   ),
-                  Text('Map', style: Theme.of(context).textTheme.bodySmall),
+                  Text(locale.map, style: Theme.of(context).textTheme.bodySmall),
                 ],
               ),
               Column(
@@ -64,7 +66,7 @@ class MainLayoutBottomAppbar extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'Favorite',
+                    locale.favorite,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ],
@@ -81,7 +83,7 @@ class MainLayoutBottomAppbar extends StatelessWidget {
                           : AppIcons.profileIc,
                     ),
                   ),
-                  Text('Profile', style: Theme.of(context).textTheme.bodySmall),
+                  Text(locale.profile, style: Theme.of(context).textTheme.bodySmall),
                 ],
               ),
             ],

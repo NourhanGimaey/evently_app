@@ -1,5 +1,6 @@
 import 'package:evently/core/utils/app_assets.dart';
 import 'package:evently/core/utils/app_colors.dart';
+import 'package:evently/l10n/localization/app_localizations.dart';
 import 'package:evently/ui/tabs/home_tab/provider/home_tab_provider.dart';
 import 'package:evently/ui/tabs/home_tab/widget/home_custom_tab_widget.dart';
 import 'package:evently/ui/tabs/home_tab/widget/language_icon_button.dart';
@@ -15,6 +16,7 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppLocalizations locale = AppLocalizations.of(context)!;
     final user = FirebaseAuth.instance.currentUser;
     final userName = user?.displayName ?? 'Guest';
 
@@ -38,7 +40,7 @@ class HomeTab extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Welcome Back ✨',
+                    locale.welcomeBack,
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
                   ),
                   Text(
@@ -77,52 +79,52 @@ class HomeTab extends StatelessWidget {
                 HomeCustomTab(
                   index: 0,
                   customIcon: FontAwesome.compass,
-                  tabName: 'All',
+                  tabName: locale.all,
                 ),
                 HomeCustomTab(
                   index: 1,
                   customIcon: FontAwesome.bicycle_solid,
-                  tabName: 'Sport',
+                  tabName: locale.sport,
                 ),
                 HomeCustomTab(
                   index: 2,
                   customIcon: FontAwesome.cake_candles_solid,
-                  tabName: 'Birthday',
+                  tabName: locale.birthday,
                 ),
                 HomeCustomTab(
                   index: 3,
                   customIcon: FontAwesome.calendar,
-                  tabName: 'Meeting',
+                  tabName: locale.meeting,
                 ),
                 HomeCustomTab(
                   index: 4,
                   customIcon: FontAwesome.gamepad_solid,
-                  tabName: 'Gaming',
+                  tabName: locale.gaming,
                 ),
                 HomeCustomTab(
                   index: 5,
                   customIcon: FontAwesome.plate_wheat_solid,
-                  tabName: 'Eating',
+                  tabName: locale.eating,
                 ),
                 HomeCustomTab(
                   index: 6,
                   customIcon: FontAwesome.calendar_days,
-                  tabName: 'Holiday',
+                  tabName: locale.holiday,
                 ),
                 HomeCustomTab(
                   index: 7,
                   customIcon: FontAwesome.brush_solid,
-                  tabName: 'Exhibition',
+                  tabName: locale.exhibition,
                 ),
                 HomeCustomTab(
                   index: 8,
                   customIcon: FontAwesome.user_group_solid,
-                  tabName: 'Wokshop',
+                  tabName: locale.workshop,
                 ),
                 HomeCustomTab(
                   index: 9,
                   customIcon: FontAwesome.book_bookmark_solid,
-                  tabName: 'Book Club',
+                  tabName: locale.bookclub,
                 ),
               ],
             ),
