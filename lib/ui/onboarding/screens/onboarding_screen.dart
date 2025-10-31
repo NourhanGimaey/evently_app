@@ -1,4 +1,5 @@
 import 'package:evently/core/utils/app_assets.dart';
+import 'package:evently/core/utils/app_colors.dart';
 import 'package:evently/core/utils/app_routes.dart';
 import 'package:evently/core/widgets/custom_elevated_button.dart';
 import 'package:evently/l10n/localization/app_localizations.dart';
@@ -56,6 +57,7 @@ class OnboardingScreen extends StatelessWidget {
                 const SizedBox(height: 16),
                 SafeArea(
                   child: CustomElevatedButton(
+                    backgroundColor: AppColors.blue,
                     text: locale.letsStart,
                     onPress: () {
                       Navigator.pushNamed(

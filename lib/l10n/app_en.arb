@@ -18,5 +18,6 @@
     "reEnterPassword": "Re-Enter Password",
     "alreadyHaveAccount": "Already have an account?",
     "forgetPassword" : "Forget Password",
-    "resetPassword": "Reset Password"
+    "resetPassword": "Reset Password",
+    "logout": "Logout"
 }

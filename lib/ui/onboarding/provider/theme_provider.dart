@@ -5,9 +5,11 @@ class ThemeProvider extends ChangeNotifier {
 
   ThemeMode get themeMode => _themeMode;
 
-  void toggleTheme(ThemeMode theme) {
-    theme == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
-    _themeMode = theme;
+  void toggleTheme() {
+    _themeMode = _themeMode == ThemeMode.light 
+        ? ThemeMode.dark 
+        : ThemeMode.light;
+        
     notifyListeners();
   }
 }
