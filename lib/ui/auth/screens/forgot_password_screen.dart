@@ -1,4 +1,5 @@
 import 'package:evently/core/utils/app_assets.dart';
+import 'package:evently/core/utils/app_colors.dart';
 import 'package:evently/core/widgets/custom_elevated_button.dart';
 import 'package:evently/l10n/localization/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,9 @@ class ForgotPassword extends StatelessWidget {
             spacing: 16,
             children: [
               Expanded(child: Image.asset(AppImages.resetPassword)),
-              CustomElevatedButton(onPress: () {}, text: locale.resetPassword),
+              CustomElevatedButton(
+                onPress: () {}, 
+                backgroundColor: AppColors.blue,text: locale.resetPassword),
             ],
           ),
         ),

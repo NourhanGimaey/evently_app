@@ -68,4 +68,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get resetPassword => 'إعادة تعيين كلمة المرور';
+
+  @override
+  String get logout => 'Logout';
 }

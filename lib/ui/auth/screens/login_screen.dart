@@ -128,9 +128,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   CustomElevatedButton(
-                    // Call the new login function
                     onPress: _login,
                     text: locale.login,
+                    backgroundColor: AppColors.blue,
                   ),
                   const SizedBox(height: 16),
                   Row(

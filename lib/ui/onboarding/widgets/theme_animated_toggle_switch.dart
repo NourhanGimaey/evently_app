@@ -21,7 +21,7 @@ class ThemeAnimatedToggleSwitch extends StatelessWidget {
       ),
       current: context.watch<ThemeProvider>().themeMode,
       values: [ThemeMode.light, ThemeMode.dark],
-      onChanged: (theme) => context.read<ThemeProvider>().toggleTheme(theme),
+      onChanged: (theme) => context.read<ThemeProvider>().toggleTheme(),
     );
   }
 }

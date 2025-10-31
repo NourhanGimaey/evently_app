@@ -1,5 +1,7 @@
 import 'package:evently/core/utils/app_colors.dart';
+import 'package:evently/ui/onboarding/provider/theme_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CustomTextField extends StatefulWidget {
   final String customLabel;
@@ -84,6 +86,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
   bool isObscureText = true;
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
+
     return TextFormField(
       controller: widget.controller,
       textInputAction: widget.customTextInputAction,
@@ -103,8 +107,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
         label: Text(widget.customLabel),
         hintStyle: Theme.of(context).textTheme.bodyMedium,
         prefixIcon: widget.customPrefixIcon,
-        prefixIconColor: AppColors.grey,
-        suffixIconColor: AppColors.grey,
+        prefixIconColor: themeProvider.themeMode == ThemeMode.light
+            ? AppColors.grey
+            : AppColors.white,
+        suffixIconColor: themeProvider.themeMode == ThemeMode.light
+            ? AppColors.grey
+            : AppColors.white,
         suffixIcon: Visibility(
           visible: widget.isPassword,
           child: IconButton(
@@ -118,15 +126,27 @@ class _CustomTextFieldState extends State<CustomTextField> {
         contentPadding: EdgeInsets.symmetric(horizontal: 8),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide(color: AppColors.grey),
+          borderSide: BorderSide(
+            color: themeProvider.themeMode == ThemeMode.light
+                ? AppColors.grey
+                : AppColors.white,
+          ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide(color: AppColors.grey),
+          borderSide: BorderSide(
+            color: themeProvider.themeMode == ThemeMode.light
+                ? AppColors.grey
+                : AppColors.white,
+          ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide(color: AppColors.grey),
+          borderSide: BorderSide(
+            color: themeProvider.themeMode == ThemeMode.light
+                ? AppColors.grey
+                : AppColors.white,
+          ),
         ),
       ),
     );

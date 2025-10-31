@@ -7,6 +7,7 @@ class AppImages {
   static const String authLogo = 'assets/images/auth_logo.png';
   static const String resetPassword = 'assets/images/reset_passwrod.png';
   static const String googleLogo = 'assets/images/google_logo.png';
+  static const String routePP = 'assets/images/route_pp.jpg';
   static const String sport = 'assets/images/sport.png';
   static const String birthday = 'assets/images/birthday.png';
   static const String meeting = 'assets/images/meeting.png';

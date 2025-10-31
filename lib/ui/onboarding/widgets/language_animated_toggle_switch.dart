@@ -24,7 +24,7 @@ class LanguageAnimatedToggleSwitch extends StatelessWidget {
       current: context.watch<LanguageProvider>().appLocale,
       values: [Locale('en'), Locale('ar')],
       onChanged: (language) =>
-          context.read<LanguageProvider>().toggleLanguage(language),
+          context.read<LanguageProvider>().toggleLanguage(),
     );
   }
 }

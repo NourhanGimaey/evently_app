@@ -1,8 +1,9 @@
 import 'package:evently/core/utils/app_assets.dart';
 import 'package:evently/core/utils/app_colors.dart';
-import 'package:evently/l10n/localization/app_localizations.dart';
 import 'package:evently/ui/tabs/home_tab/provider/home_tab_provider.dart';
 import 'package:evently/ui/tabs/home_tab/widget/home_custom_tab_widget.dart';
+import 'package:evently/ui/tabs/home_tab/widget/language_icon_button.dart';
+import 'package:evently/ui/tabs/home_tab/widget/theme_icon_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -14,11 +15,7 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppLocalizations locale = AppLocalizations.of(context)!;
-
-    // Retrieve the current authenticated user
     final user = FirebaseAuth.instance.currentUser;
-    // Get the display name, or use 'Guest' as a fallback
     final userName = user?.displayName ?? 'Guest';
 
     return Consumer<HomeTabProvider>(
@@ -62,32 +59,7 @@ class HomeTab extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.light_mode_outlined,
-                        color: AppColors.white,
-                      ),
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: AppColors.white,
-                      ),
-                      width: 35,
-                      height: 33,
-                      child: Text(
-                        'EN',
-                        style: TextStyle(
-                          color: AppColors.blue,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
-                  ],
+                  children: [ThemeToggleButton(), LanguageToggleButton()],
                 ),
               ),
             ],

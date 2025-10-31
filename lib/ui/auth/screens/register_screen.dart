@@ -152,6 +152,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     customTextInputAction: TextInputAction.done,
                   ),
                   CustomElevatedButton(
+                    backgroundColor: AppColors.blue,
                      onPress: _isLoading ? () {} : _handleRegister,
                     text: _isLoading
                         ? '...' // Use a simple loading indicator text
