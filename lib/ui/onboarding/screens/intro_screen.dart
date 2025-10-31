@@ -1,10 +1,10 @@
+import 'package:evently/l10n/localization/app_localizations.dart';
 import 'package:evently/ui/onboarding/models/intro_screen.dart';
 import 'package:evently/core/utils/app_assets.dart';
 import 'package:evently/core/utils/app_colors.dart';
 import 'package:evently/core/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});
@@ -15,14 +15,43 @@ class IntroScreen extends StatefulWidget {
 
 class _IntroScreenState extends State<IntroScreen> {
   final PageController _pageController = PageController();
-  int currentPageIndex = 0;
+  int currentPageIndex = 0; 
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  void _navigateToLoginScreen() {
+    Navigator.pushReplacementNamed(context, AppRoutes.loginScreen.routeName);
+  }
 
   @override
   Widget build(BuildContext context) {
+    AppLocalizations locale = AppLocalizations.of(context)!;
     bool isFirstPage = currentPageIndex == 0;
     bool isLastPage = currentPageIndex == IntroDetails.introDetails.length - 1;
+    
     return Scaffold(
-      appBar: AppBar(title: Image.asset(AppImages.logo, width: 160)),
+      appBar: AppBar(
+        title: Image.asset(AppImages.logo, width: 160),
+        actions: [
+          Visibility(
+            visible: !isLastPage,
+            child: TextButton(
+              onPressed: _navigateToLoginScreen,
+              child: Text(
+                locale.skip,
+                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                  color: AppColors.blue, 
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(width: 8),
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -32,26 +61,28 @@ class _IntroScreenState extends State<IntroScreen> {
                 itemCount: IntroDetails.introDetails.length,
                 controller: _pageController,
                 onPageChanged: (value) {
-                  currentPageIndex = value;
-                  currentPageIndex = _pageController.page!.round();
-                  setState(() {});
+                  setState(() {
+                    currentPageIndex = value;
+                  });
                 },
                 itemBuilder: (context, index) {
+                  final IntroDetails currentDetail = IntroDetails.introDetails[index];
+                  
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
                         child: Image.asset(
-                          IntroDetails.introDetails[index].imagePath,
+                          currentDetail.imagePath,
                         ),
                       ),
                       Text(
-                        IntroDetails.introDetails[index].title,
+                        currentDetail.getLocalizedTitle(context), 
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       Text(
-                        IntroDetails.introDetails[index].subtitle,
+                        currentDetail.getLocalizedSubtitle(context),
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ],
@@ -59,7 +90,7 @@ class _IntroScreenState extends State<IntroScreen> {
                 },
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             SafeArea(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -72,11 +103,11 @@ class _IntroScreenState extends State<IntroScreen> {
                       child: IconButton(
                         onPressed: () {
                           _pageController.previousPage(
-                      duration: Duration(milliseconds: 300),
-                      curve: Curves.easeInOut,
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeInOut,
                           );
                         },
-                        icon: Icon(Icons.arrow_back_outlined),
+                        icon: const Icon(Icons.arrow_back_outlined),
                       ),
                     ),
                   ),
@@ -84,11 +115,11 @@ class _IntroScreenState extends State<IntroScreen> {
                     controller: _pageController,
                     count: IntroDetails.introDetails.length,
                     effect: const WormEffect(
-                    dotColor: AppColors.blue,
-                    activeDotColor: AppColors.black,
-                    dotWidth: 7,
-                    dotHeight: 7,
-                  ),
+                      dotColor: AppColors.blue,
+                      activeDotColor: AppColors.black,
+                      dotWidth: 7,
+                      dotHeight: 7,
+                    ),
                   ),
                   CircleAvatar(
                     backgroundColor: AppColors.blue,
@@ -96,13 +127,13 @@ class _IntroScreenState extends State<IntroScreen> {
                     child: IconButton(
                       onPressed: () {
                         isLastPage
-                      ? Navigator.pushNamed(context, AppRoutes.loginScreen.routeName)
-                      : _pageController.nextPage(
-                          duration: Duration(milliseconds: 300),
-                          curve: Curves.easeInOut,
-                        );
+                          ? _navigateToLoginScreen() 
+                          : _pageController.nextPage(
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.easeInOut,
+                            );
                       },
-                      icon: Icon(Icons.arrow_forward_outlined),
+                      icon: const Icon(Icons.arrow_forward_outlined),
                     ),
                   ),
                 ],

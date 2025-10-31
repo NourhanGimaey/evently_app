@@ -71,4 +71,73 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get logout => 'Logout';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get map => 'Map';
+
+  @override
+  String get favorite => 'Favorite';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get welcomeBack => 'Welcome Back ✨';
+
+  @override
+  String get all => 'All';
+
+  @override
+  String get sport => 'Sport';
+
+  @override
+  String get birthday => 'Birthday';
+
+  @override
+  String get meeting => 'Meeting';
+
+  @override
+  String get gaming => 'Gaming';
+
+  @override
+  String get eating => 'Eating';
+
+  @override
+  String get holiday => 'Holiday';
+
+  @override
+  String get exhibition => 'Exhibition';
+
+  @override
+  String get workshop => 'Workshop';
+
+  @override
+  String get bookclub => 'Bookclub';
+
+  @override
+  String get skip => 'Skip';
+
+  @override
+  String get intro1Title => 'Find Events That Inspire You';
+
+  @override
+  String get intro1Subtitle =>
+      'Dive into a world of events crafted to fit your unique interests!\nWhether you\'re into live music, art workshops, professional networking, or simply discovering new experiences, we have something for everyone. Our curated recommendations will help you explore, connect, and make the most of every opportunity around you.';
+
+  @override
+  String get intro2Title => 'Effortless Event Planning';
+
+  @override
+  String get intro2Subtitle =>
+      'Take the hassle out of organizing events with our all-in-one planning tools!\nFrom setting up invites and managing RSVPs to scheduling reminders and coordinating details, we’ve got you covered. Plan with ease and focus on what matters – creating an unforgettable experience for you and your guests.';
+
+  @override
+  String get intro3Title => 'Connect with Friends & Share Moments';
+
+  @override
+  String get intro3Subtitle =>
+      'Make every event memorable by sharing the experience with others!\nOur platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.';
 }
