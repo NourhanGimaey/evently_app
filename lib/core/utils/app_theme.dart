@@ -2,6 +2,7 @@ import 'package:evently/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 final ThemeData appLightTheme = ThemeData(
+  primaryColor: AppColors.blue,
   appBarTheme: AppBarTheme(backgroundColor: AppColors.lightTheme),
   scaffoldBackgroundColor: AppColors.lightTheme,
   textTheme: TextTheme(

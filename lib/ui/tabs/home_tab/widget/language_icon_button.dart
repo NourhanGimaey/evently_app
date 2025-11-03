@@ -3,8 +3,8 @@ import 'package:evently/ui/onboarding/provider/language_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class LanguageToggleButton extends StatelessWidget {
-  const LanguageToggleButton({super.key});
+class LanguageIconButton extends StatelessWidget {
+  const LanguageIconButton({super.key});
 
   @override
   Widget build(BuildContext context) {

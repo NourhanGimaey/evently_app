@@ -1,7 +1,10 @@
-import 'package:evently/ui/auth/provider/auth_provider.dart';
+import 'package:evently/ui/auth/provider/firebase_auth_services.dart';
 import 'package:evently/ui/auth/screens/forgot_password_screen.dart';
 import 'package:evently/ui/auth/screens/login_screen.dart';
 import 'package:evently/ui/auth/screens/register_screen.dart';
+import 'package:evently/ui/events_management/provider/event_management_provider.dart';
+import 'package:evently/ui/events_management/screens/event_management_screen.dart';
+import 'package:evently/ui/events_management/screens/pick_location_screen.dart';
 import 'package:evently/ui/home/provider/main_layout_provider.dart';
 import 'package:evently/ui/home/screens/main_layout.dart';
 import 'package:evently/ui/onboarding/screens/intro_screen.dart';
@@ -17,7 +20,9 @@ enum AppRoutes {
   registerScreen('/register_screen'),
   forgotPassword('/forgot_password_screen'),
   homeScreen('/home_screen'),
-  mainLayout('/main_layout');
+  mainLayout('/main_layout'),
+  eventManagementScreen('/event_management_screen'),
+  pickLocationScreen('/pick_location_screen');
 
   final String routeName;
   const AppRoutes(this.routeName);
@@ -26,11 +31,11 @@ enum AppRoutes {
     AppRoutes.onboardingScreen.routeName: (context) => const OnboardingScreen(),
     AppRoutes.introScreen.routeName: (context) => const IntroScreen(),
     AppRoutes.loginScreen.routeName: (context) => ChangeNotifierProvider(
-      create: (context) => AuthProvider(),
+      create: (context) => FirebaseAuthService(),
       child: const LoginScreen(),
     ),
     AppRoutes.registerScreen.routeName: (context) => ChangeNotifierProvider(
-      create: (context) => AuthProvider(),
+      create: (context) => FirebaseAuthService(),
       child: const RegisterScreen(),
     ),
     AppRoutes.forgotPassword.routeName: (context) => const ForgotPassword(),
@@ -41,5 +46,12 @@ enum AppRoutes {
       ],
       child: const MainLayout(),
     ),
+    AppRoutes.eventManagementScreen.routeName: (context) =>
+        ChangeNotifierProvider(
+          create: (context) => EventManagementProvider(),
+          child: const EventManagementScreen(),
+        ),
+    AppRoutes.pickLocationScreen.routeName: (context) =>
+        const PickLocationScreen(),
   };
 }

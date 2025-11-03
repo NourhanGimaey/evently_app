@@ -140,4 +140,37 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get intro3Subtitle =>
       'Make every event memorable by sharing the experience with others!\nOur platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.';
+
+  @override
+  String get createEvent => 'Create Event';
+
+  @override
+  String get title => 'Title';
+
+  @override
+  String get eventTitle => 'Event Title';
+
+  @override
+  String get description => 'Description';
+
+  @override
+  String get eventDescription => 'Event Description';
+
+  @override
+  String get location => 'Location';
+
+  @override
+  String get addEvent => 'Add Event';
+
+  @override
+  String get eventDate => 'Event Date';
+
+  @override
+  String get eventTime => 'EventTime';
+
+  @override
+  String get chooseDate => 'Choose Date';
+
+  @override
+  String get chooseTime => 'Choose Time';
 }

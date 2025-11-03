@@ -140,4 +140,37 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get intro3Subtitle =>
       'اجعل كل فعالية لا تُنسى من خلال مشاركة التجربة مع الآخرين!\nتتيح لك منصتنا دعوة الأصدقاء، وإبقاء الجميع على اطلاع دائم، والاحتفال باللحظات معاً. التقط وشارك الإثارة مع شبكتك، حتى تتمكن من استعادة اللحظات المميزة والاعتزاز بالذكريات.';
+
+  @override
+  String get createEvent => 'إنشاء فعالية';
+
+  @override
+  String get title => 'العنوان';
+
+  @override
+  String get eventTitle => 'عنوان الفعالية';
+
+  @override
+  String get description => 'الوصف';
+
+  @override
+  String get eventDescription => 'وصف الفعالية';
+
+  @override
+  String get location => 'الموقع';
+
+  @override
+  String get addEvent => 'إضافة فعالية';
+
+  @override
+  String get eventDate => 'تاريخ الفعالية';
+
+  @override
+  String get eventTime => 'وقت الفعالية';
+
+  @override
+  String get chooseDate => 'اختر التاريخ';
+
+  @override
+  String get chooseTime => 'اختر الوقت';
 }

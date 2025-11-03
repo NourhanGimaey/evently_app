@@ -3,8 +3,8 @@ import 'package:evently/core/utils/app_colors.dart';
 import 'package:evently/core/utils/app_routes.dart';
 import 'package:evently/core/widgets/custom_elevated_button.dart';
 import 'package:evently/l10n/localization/app_localizations.dart';
-import 'package:evently/ui/auth/provider/auth_provider.dart';
-import 'package:evently/ui/auth/widget/custom_textField.dart';
+import 'package:evently/ui/auth/provider/firebase_auth_services.dart';
+import 'package:evently/ui/auth/widget/custom_text_field.dart';
 import 'package:evently/ui/onboarding/widgets/language_animated_toggle_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -33,9 +33,9 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     }
 
-    final authProvider = Provider.of<AuthProvider>(context, listen: false);
+    final authProvider = Provider.of<FirebaseAuthService>(context, listen: false);
 
-    final response = await authProvider.login(
+    final response = await authProvider.signInEmailPassword(
       _emailController.text.trim(),
       _passwordController.text.trim(),
     );
@@ -174,7 +174,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ).textTheme.bodyMedium?.copyWith(color: AppColors.blue),
                         ),
                       ),
-                      Expanded(
+                      const Expanded(
                         child: Divider(
                           color: AppColors.blue,
                           thickness: 1,

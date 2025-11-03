@@ -3,8 +3,8 @@ import 'package:evently/ui/onboarding/provider/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class ThemeToggleButton extends StatelessWidget {
-  const ThemeToggleButton({super.key});
+class ThemeIconButton extends StatelessWidget {
+  const ThemeIconButton({super.key});
 
   @override
   Widget build(BuildContext context) {
