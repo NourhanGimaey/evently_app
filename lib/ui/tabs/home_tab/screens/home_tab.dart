@@ -60,9 +60,7 @@ class HomeTab extends StatelessWidget {
             actions: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Row(
-                  children: [ThemeToggleButton(), LanguageToggleButton()],
-                ),
+                child: Row(children: [ThemeIconButton(), LanguageIconButton()]),
               ),
             ],
             bottom: TabBar(
@@ -83,47 +81,47 @@ class HomeTab extends StatelessWidget {
                 ),
                 HomeCustomTab(
                   index: 1,
-                  customIcon: FontAwesome.bicycle_solid,
+                  customIcon: Icons.sports_soccer_outlined,
                   tabName: locale.sport,
                 ),
                 HomeCustomTab(
                   index: 2,
-                  customIcon: FontAwesome.cake_candles_solid,
+                  customIcon: Icons.cake_outlined,
                   tabName: locale.birthday,
                 ),
                 HomeCustomTab(
                   index: 3,
-                  customIcon: FontAwesome.calendar,
+                  customIcon: Icons.meeting_room_outlined,
                   tabName: locale.meeting,
                 ),
                 HomeCustomTab(
                   index: 4,
-                  customIcon: FontAwesome.gamepad_solid,
+                  customIcon: Icons.gamepad_outlined,
                   tabName: locale.gaming,
                 ),
                 HomeCustomTab(
                   index: 5,
-                  customIcon: FontAwesome.plate_wheat_solid,
+                  customIcon: Icons.fastfood_outlined,
                   tabName: locale.eating,
                 ),
                 HomeCustomTab(
                   index: 6,
-                  customIcon: FontAwesome.calendar_days,
+                  customIcon: Icons.beach_access_outlined,
                   tabName: locale.holiday,
                 ),
                 HomeCustomTab(
                   index: 7,
-                  customIcon: FontAwesome.brush_solid,
+                  customIcon: Icons.art_track_outlined,
                   tabName: locale.exhibition,
                 ),
                 HomeCustomTab(
                   index: 8,
-                  customIcon: FontAwesome.user_group_solid,
+                  customIcon: Icons.design_services_outlined,
                   tabName: locale.workshop,
                 ),
                 HomeCustomTab(
                   index: 9,
-                  customIcon: FontAwesome.book_bookmark_solid,
+                  customIcon: Icons.menu_book_outlined,
                   tabName: locale.bookclub,
                 ),
               ],

@@ -3,8 +3,8 @@ import 'package:evently/core/utils/app_colors.dart';
 import 'package:evently/core/utils/app_routes.dart';
 import 'package:evently/core/widgets/custom_elevated_button.dart';
 import 'package:evently/l10n/localization/app_localizations.dart';
-import 'package:evently/ui/auth/provider/auth_provider.dart';
-import 'package:evently/ui/auth/widget/custom_textField.dart';
+import 'package:evently/ui/auth/provider/firebase_auth_services.dart';
+import 'package:evently/ui/auth/widget/custom_text_field.dart';
 import 'package:evently/ui/onboarding/widgets/language_animated_toggle_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -55,9 +55,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
 
     try {
-      final authProvider = Provider.of<AuthProvider>(context, listen: false);
+      final authProvider = Provider.of<FirebaseAuthService>(context, listen: false);
 
-      await authProvider.register(
+      await authProvider.signUpEmailPassword(
         _emailController.text,
         _passwordController.text,
         _nameController.text,

@@ -1,21 +1,22 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
-class AuthProvider extends ChangeNotifier {
-  Future<AuthResponse> register(
+class FirebaseAuthService extends ChangeNotifier {
+  static User? getUserData() {
+    return FirebaseAuth.instance.currentUser;
+  }
+
+  Future<AuthResponse> signUpEmailPassword(
     String email,
     String password,
     String name,
     String phone,
   ) async {
     try {
-      // 1. Create the user with email and password
-      final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
+      final credential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
 
-      // 2. Update user profile with display name (name)
       await credential.user?.updateDisplayName(name);
 
       print('Registration successful for user: ${credential.user?.uid}');
@@ -24,18 +25,27 @@ class AuthProvider extends ChangeNotifier {
       if (e.code == AuthFailure.weakPassword.code) {
         return AuthResponse(success: false, failure: AuthFailure.weakPassword);
       } else if (e.code == AuthFailure.emailAlreadyInUse.code) {
-        return AuthResponse(success: false, failure: AuthFailure.emailAlreadyInUse);
+        return AuthResponse(
+          success: false,
+          failure: AuthFailure.emailAlreadyInUse,
+        );
       }
-      
+
       print('Unhandled FirebaseAuthException code: ${e.code}');
-      return AuthResponse(success: false, failure: AuthFailure.unknownAuthError);
+      return AuthResponse(
+        success: false,
+        failure: AuthFailure.unknownAuthError,
+      );
     } catch (e) {
       print(e);
       return AuthResponse(success: false, failure: AuthFailure.generalError);
     }
   }
 
-  Future<AuthResponse> login(String email, String password) async {
+  Future<AuthResponse> signInEmailPassword(
+    String email,
+    String password,
+  ) async {
     try {
       final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
@@ -48,15 +58,35 @@ class AuthProvider extends ChangeNotifier {
       if (e.code == AuthFailure.userNotFound.code) {
         return AuthResponse(success: false, failure: AuthFailure.userNotFound);
       } else if (e.code == AuthFailure.invalidCredential.code) {
-        return AuthResponse(success: false, failure: AuthFailure.invalidCredential);
+        return AuthResponse(
+          success: false,
+          failure: AuthFailure.invalidCredential,
+        );
       }
 
       print('Unhandled FirebaseAuthException code during login: ${e.code}');
-      return AuthResponse(success: false, failure: AuthFailure.unknownAuthError);
+      return AuthResponse(
+        success: false,
+        failure: AuthFailure.unknownAuthError,
+      );
     } catch (e) {
       print(e);
       return AuthResponse(success: false, failure: AuthFailure.generalError);
     }
+  }
+
+  Future<User?> signInGoogle() async {
+    GoogleSignIn.instance;
+    final GoogleSignInAccount googleUser = await GoogleSignIn.instance
+        .authenticate();
+    final GoogleSignInAuthentication googleAuth = googleUser.authentication;
+
+    final credential = GoogleAuthProvider.credential(
+      idToken: googleAuth.idToken,
+    );
+
+    var cred = await FirebaseAuth.instance.signInWithCredential(credential);
+    return cred.user;
   }
 }
 
@@ -64,7 +94,7 @@ class AuthResponse {
   final bool success;
   final UserCredential? credential;
   final AuthFailure? failure;
-  
+
   AuthResponse({required this.success, this.credential, this.failure});
 }
 

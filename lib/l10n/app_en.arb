@@ -42,5 +42,16 @@
     "intro2Title": "Effortless Event Planning",
     "intro2Subtitle": "Take the hassle out of organizing events with our all-in-one planning tools!\nFrom setting up invites and managing RSVPs to scheduling reminders and coordinating details, we’ve got you covered. Plan with ease and focus on what matters – creating an unforgettable experience for you and your guests.",
     "intro3Title": "Connect with Friends & Share Moments",
-    "intro3Subtitle": "Make every event memorable by sharing the experience with others!\nOur platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories."
+    "intro3Subtitle": "Make every event memorable by sharing the experience with others!\nOur platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.",
+    "createEvent": "Create Event",
+    "title": "Title",
+    "eventTitle": "Event Title",
+    "description": "Description",
+    "eventDescription": "Event Description",
+    "location": "Location",
+    "addEvent": "Add Event",
+    "eventDate": "Event Date",
+    "eventTime": "EventTime",
+    "chooseDate": "Choose Date",
+    "chooseTime": "Choose Time"
 }

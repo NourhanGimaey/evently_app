@@ -2,18 +2,9 @@ import 'package:evently/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
-// typedef OnToggleSwitched = void Function(int index, String selectedValue);
-
-// enum Languages { English, Arabic }
-
-// enum Themes { Light, Dark }
-
 class CustomToggleSwitch extends StatelessWidget {
   final bool language;
-  // OnToggleSwitched onToggleSwitched;
-  // final List<Languages> languages = [Languages.English, Languages.Arabic];
-  // final List<Themes> theme = [Themes.Light, Themes.Dark];
-  CustomToggleSwitch({super.key, this.language = true});
+  const CustomToggleSwitch({super.key, this.language = true});
 
   @override
   Widget build(BuildContext context) {
