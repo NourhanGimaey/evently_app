@@ -1,7 +1,9 @@
 import 'package:evently/core/utils/app_assets.dart';
 import 'package:evently/core/utils/app_colors.dart';
+import 'package:evently/core/utils/app_routes.dart';
 import 'package:evently/core/widgets/custom_elevated_button.dart';
 import 'package:evently/l10n/localization/app_localizations.dart';
+import 'package:evently/ui/auth/provider/firebase_auth_services.dart';
 import 'package:evently/ui/tabs/profile_tab/widget/custom_language_dropdown.dart';
 import 'package:evently/ui/tabs/profile_tab/widget/custom_theme_dropdown.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -70,7 +72,14 @@ class ProfileTab extends StatelessWidget {
             CustomThemeDropdown(),
             Spacer(),
             CustomElevatedButton(
-              onPress: () {},
+              onPress: () async {
+                await FirebaseAuthService().signOut();
+                if (context.mounted) {
+                  Navigator.of(
+                    context,
+                  ).pushReplacementNamed(AppRoutes.loginScreen.routeName);
+                }
+              },
               backgroundColor: Colors.red,
               text: locale.logout,
             ),

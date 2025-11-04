@@ -4,7 +4,6 @@ import 'package:evently/ui/auth/screens/login_screen.dart';
 import 'package:evently/ui/auth/screens/register_screen.dart';
 import 'package:evently/ui/events_management/provider/event_management_provider.dart';
 import 'package:evently/ui/events_management/screens/event_management_screen.dart';
-import 'package:evently/ui/events_management/screens/pick_location_screen.dart';
 import 'package:evently/ui/home/provider/main_layout_provider.dart';
 import 'package:evently/ui/home/screens/main_layout.dart';
 import 'package:evently/ui/onboarding/screens/intro_screen.dart';
@@ -51,7 +50,6 @@ enum AppRoutes {
           create: (context) => EventManagementProvider(),
           child: const EventManagementScreen(),
         ),
-    AppRoutes.pickLocationScreen.routeName: (context) =>
-        const PickLocationScreen(),
+
   };
 }

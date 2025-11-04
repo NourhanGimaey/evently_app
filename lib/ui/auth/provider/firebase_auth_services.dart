@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -19,7 +20,7 @@ class FirebaseAuthService extends ChangeNotifier {
 
       await credential.user?.updateDisplayName(name);
 
-      print('Registration successful for user: ${credential.user?.uid}');
+      log('Registration successful for user: ${credential.user?.uid}');
       return AuthResponse(success: true, credential: credential);
     } on FirebaseAuthException catch (e) {
       if (e.code == AuthFailure.weakPassword.code) {
@@ -31,13 +32,13 @@ class FirebaseAuthService extends ChangeNotifier {
         );
       }
 
-      print('Unhandled FirebaseAuthException code: ${e.code}');
+      log('Unhandled FirebaseAuthException code: ${e.code}');
       return AuthResponse(
         success: false,
         failure: AuthFailure.unknownAuthError,
       );
     } catch (e) {
-      print(e);
+      log(e.toString());
       return AuthResponse(success: false, failure: AuthFailure.generalError);
     }
   }
@@ -52,7 +53,7 @@ class FirebaseAuthService extends ChangeNotifier {
         password: password,
       );
 
-      print('Login successful for user: ${credential.user?.uid}');
+      log('Login successful for user: ${credential.user?.uid}');
       return AuthResponse(success: true, credential: credential);
     } on FirebaseAuthException catch (e) {
       if (e.code == AuthFailure.userNotFound.code) {
@@ -64,30 +65,46 @@ class FirebaseAuthService extends ChangeNotifier {
         );
       }
 
-      print('Unhandled FirebaseAuthException code during login: ${e.code}');
+      log('Unhandled FirebaseAuthException code during login: ${e.code}');
       return AuthResponse(
         success: false,
         failure: AuthFailure.unknownAuthError,
       );
     } catch (e) {
-      print(e);
+      log(e.toString());
       return AuthResponse(success: false, failure: AuthFailure.generalError);
     }
   }
 
-  Future<User?> signInGoogle() async {
-    GoogleSignIn.instance;
-    final GoogleSignInAccount googleUser = await GoogleSignIn.instance
-        .authenticate();
-    final GoogleSignInAuthentication googleAuth = googleUser.authentication;
+  Future<void> signInGoogle() async {
+    try {
 
-    final credential = GoogleAuthProvider.credential(
-      idToken: googleAuth.idToken,
-    );
+      final GoogleSignIn googleSignIn = GoogleSignIn.instance;
+      await googleSignIn.initialize(
+        serverClientId: "40572729229-3qsr712vjlb64uf166et58eaahdmhk6a.apps.googleusercontent.com",
+      );
+      final GoogleSignInAccount? googleUser = await googleSignIn
+          .authenticate();
 
-    var cred = await FirebaseAuth.instance.signInWithCredential(credential);
-    return cred.user;
+    if ( googleUser == null) return;   
+
+      final GoogleSignInAuthentication googleAuth = googleUser.authentication;
+
+      final credential = GoogleAuthProvider.credential(
+        idToken: googleAuth.idToken,
+      );
+
+      await FirebaseAuth.instance.signInWithCredential(credential);
+    } catch (exception) {
+      log(exception.toString());
+    }
   }
+
+  Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
+    await GoogleSignIn.instance.signOut();
+  }
+
 }
 
 class AuthResponse {
