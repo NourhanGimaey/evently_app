@@ -1,7 +1,9 @@
 import 'package:evently/core/utils/app_colors.dart';
 import 'package:evently/core/widgets/custom_elevated_button.dart';
+import 'package:evently/firebase/events_firebase_database.dart';
 import 'package:evently/l10n/localization/app_localizations.dart';
 import 'package:evently/models/category_model.dart';
+import 'package:evently/models/event.dart';
 import 'package:evently/ui/events_management/provider/event_management_provider.dart';
 import 'package:evently/ui/events_management/widgets/custom_text_form_field.dart';
 import 'package:evently/ui/events_management/widgets/pick_location_button.dart';
@@ -158,7 +160,24 @@ class EventManagementScreen extends StatelessWidget {
               PickLocationButton(),
               const SizedBox(height: 8),
               CustomElevatedButton(
-                onPress: () {},
+                onPress: () {
+                  EventsFirebaseDatabase.createEvent(
+                    Event(
+                      title: provider.titleController.text,
+                      description: provider.descriptionController.text,
+                      date: provider.currentDate!.millisecondsSinceEpoch,
+                      time: DateTime(
+                        0,
+                        0,
+                        0,
+                        provider.currentTime!.hour,
+                        provider.currentTime!.minute,
+                        0,
+                      ).millisecondsSinceEpoch,
+                      category: provider.selectedCategory,
+                    ),
+                  );
+                },
                 text: locale.addEvent,
                 backgroundColor: AppColors.blue,
               ),
