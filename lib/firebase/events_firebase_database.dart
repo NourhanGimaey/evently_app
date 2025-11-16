@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:evently/models/event.dart';
+import 'package:evently/ui/events_management/models/event.dart';
 
 class EventsFirebaseDatabase {
  static var db = FirebaseFirestore.instance;

@@ -48,39 +48,38 @@ class CustomThemeDropdown extends StatelessWidget {
             border: Border.all(color: AppColors.blue, width: 1),
             borderRadius: BorderRadius.circular(16),
           ),
-          child: DropdownButtonHideUnderline(
-            child: DropdownButton<ThemeMode>(
-              value: currentThemeMode,
-              onChanged: (ThemeMode? newThemeMode) {
-                if (newThemeMode != null) {
-                  themeProvider.toggleTheme();
-                }
-              },
-              isExpanded: true,
-              selectedItemBuilder: (BuildContext context) {
-                return supportedThemes.map<Widget>((ThemeMode mode) {
-                  return Text(
-                    _getThemeDisplayName(mode),
-                    style: Theme.of(context).textTheme.titleMedium,
-                  );
-                }).toList();
-              },
-              items: supportedThemes.map<DropdownMenuItem<ThemeMode>>((
-                ThemeMode mode,
-              ) {
-                return DropdownMenuItem<ThemeMode>(
-                  value: mode,
-                  child: Text(
-                    _getThemeDisplayName(mode),
-                    style: const TextStyle(fontSize: 20),
-                  ),
+          child: DropdownButton<ThemeMode>(
+            borderRadius: BorderRadius.circular(16),
+            value: currentThemeMode,
+            onChanged: (ThemeMode? newThemeMode) {
+              if (newThemeMode != null) {
+                themeProvider.toggleTheme();
+              }
+            },
+            isExpanded: true,
+            selectedItemBuilder: (BuildContext context) {
+              return supportedThemes.map<Widget>((ThemeMode mode) {
+                return Text(
+                  _getThemeDisplayName(mode),
+                  style: Theme.of(context).textTheme.titleMedium,
                 );
-              }).toList(),
-              icon: const Icon(
-                Icons.arrow_drop_down,
-                color: AppColors.blue,
-                size: 32,
-              ),
+              }).toList();
+            },
+            items: supportedThemes.map<DropdownMenuItem<ThemeMode>>((
+              ThemeMode mode,
+            ) {
+              return DropdownMenuItem<ThemeMode>(
+                value: mode,
+                child: Text(
+                  _getThemeDisplayName(mode),
+                  style: const TextStyle(fontSize: 20),
+                ),
+              );
+            }).toList(),
+            icon: const Icon(
+              Icons.arrow_drop_down,
+              color: AppColors.blue,
+              size: 32,
             ),
           ),
         ),
