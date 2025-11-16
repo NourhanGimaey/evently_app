@@ -1,4 +1,4 @@
-import 'package:evently/models/category_model.dart';
+import 'package:evently/ui/events_management/models/category_model.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

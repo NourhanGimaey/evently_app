@@ -94,7 +94,10 @@ class FirebaseAuthService extends ChangeNotifier {
         idToken: googleAuth.idToken,
       );
 
-      await FirebaseAuth.instance.signInWithCredential(credential);
+    UserCredential firebaseUser = await FirebaseAuth.instance.signInWithCredential(credential);
+    // User user = User(
+
+    // );
     } catch (exception) {
       log(exception.toString());
     }

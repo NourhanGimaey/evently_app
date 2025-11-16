@@ -5,14 +5,14 @@ class Category {
   String nameEn;
   String nameAr; 
   String imagePath; 
-  IconData iconData; // This is the correct type
+  IconData iconData; 
 
   Category({
     required this.id,
     required this.nameEn,
     required this.nameAr,
     required this.imagePath,
-    required this.iconData, // Requires an actual IconData object
+    required this.iconData, 
   });
 
   static List<Category> categories = [
