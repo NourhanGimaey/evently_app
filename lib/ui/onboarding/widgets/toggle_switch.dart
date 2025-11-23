@@ -1,4 +1,4 @@
-import 'package:evently/core/utils/app_colors.dart';
+import 'package:evently/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 

@@ -421,6 +421,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Choose Time'**
   String get chooseTime;
+
+  /// No description provided for @chooseEventLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Event Location'**
+  String get chooseEventLocation;
 }
 
 class _AppLocalizationsDelegate

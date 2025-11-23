@@ -1,4 +1,4 @@
-import 'package:evently/core/utils/app_colors.dart';
+import 'package:evently/core/theme/app_colors.dart';
 import 'package:evently/core/widgets/custom_elevated_button.dart';
 import 'package:evently/firebase/events_firebase_database.dart';
 import 'package:evently/l10n/localization/app_localizations.dart';
@@ -22,6 +22,12 @@ class EventManagementScreen extends StatelessWidget {
         title: Text(
           locale.createEvent,
           style: Theme.of(context).textTheme.titleMedium,
+        ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios_new, color: AppColors.blue),
         ),
       ),
       body: Consumer<EventManagementProvider>(
@@ -103,7 +109,6 @@ class EventManagementScreen extends StatelessWidget {
                   },
                 ),
               ),
-              const SizedBox(height: 8),
               Text(locale.title),
               const SizedBox(height: 8),
               CustomTextFormField(
@@ -113,12 +118,12 @@ class EventManagementScreen extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(locale.description),
+              const SizedBox(height: 8),
               CustomTextFormField(
                 maxLines: 5,
                 hintText: locale.eventDescription,
                 controller: provider.descriptionController,
               ),
-              const SizedBox(height: 8),
               Row(
                 children: [
                   const Icon(Icons.date_range),
@@ -136,7 +141,6 @@ class EventManagementScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 8),
               Row(
                 children: [
                   const Icon(Icons.access_time),
@@ -157,8 +161,8 @@ class EventManagementScreen extends StatelessWidget {
               const SizedBox(height: 8),
               Text(locale.location),
               const SizedBox(height: 8),
-              PickLocationButton(),
-              const SizedBox(height: 8),
+              PickLocationButton(provider: provider,),
+              const SizedBox(height: 16),
               CustomElevatedButton(
                 onPress: () {
                   EventsFirebaseDatabase.createEvent(

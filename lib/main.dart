@@ -1,5 +1,5 @@
 import 'package:evently/core/utils/app_routes.dart';
-import 'package:evently/core/utils/app_theme.dart';
+import 'package:evently/core/theme/app_theme.dart';
 import 'package:evently/firebase_options.dart';
 import 'package:evently/l10n/localization/app_localizations.dart';
 import 'package:evently/ui/onboarding/provider/language_provider.dart';

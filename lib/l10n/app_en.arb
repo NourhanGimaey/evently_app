@@ -53,5 +53,6 @@
     "eventDate": "Event Date",
     "eventTime": "EventTime",
     "chooseDate": "Choose Date",
-    "chooseTime": "Choose Time"
+    "chooseTime": "Choose Time",
+    "chooseEventLocation": "Choose Event Location"
 }

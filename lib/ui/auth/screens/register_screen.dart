@@ -1,5 +1,5 @@
 import 'package:evently/core/utils/app_assets.dart';
-import 'package:evently/core/utils/app_colors.dart';
+import 'package:evently/core/theme/app_colors.dart';
 import 'package:evently/core/utils/app_routes.dart';
 import 'package:evently/core/widgets/custom_elevated_button.dart';
 import 'package:evently/l10n/localization/app_localizations.dart';
@@ -55,7 +55,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
 
     try {
-      final authProvider = Provider.of<FirebaseAuthService>(context, listen: false);
+      final authProvider = Provider.of<FirebaseAuthService>(
+        context,
+        listen: false,
+      );
 
       await authProvider.signUpEmailPassword(
         _emailController.text,
@@ -66,10 +69,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
       // Navigate on success
       if (mounted) {
-        Navigator.pushReplacementNamed(
-          context,
-          AppRoutes.homeScreen.routeName,
-        );
+        Navigator.pushReplacementNamed(context, AppRoutes.homeScreen.routeName);
       }
     } catch (e) {
       // Show error to user
@@ -86,6 +86,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       }
     }
   }
+
   @override
   Widget build(BuildContext context) {
     AppLocalizations locale = AppLocalizations.of(context)!;
@@ -95,6 +96,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
         title: Text(
           locale.register,
           style: Theme.of(context).textTheme.titleMedium,
+        ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios_new),
         ),
       ),
       body: SingleChildScrollView(
@@ -153,7 +160,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   CustomElevatedButton(
                     backgroundColor: AppColors.blue,
-                     onPress: _isLoading ? () {} : _handleRegister,
+                    onPress: _isLoading ? () {} : _handleRegister,
                     text: _isLoading
                         ? '...' // Use a simple loading indicator text
                         : locale.createAccount,
