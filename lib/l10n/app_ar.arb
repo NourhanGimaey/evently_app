@@ -53,5 +53,6 @@
     "eventDate": "تاريخ الفعالية",
     "eventTime": "وقت الفعالية",
     "chooseDate": "اختر التاريخ",
-    "chooseTime": "اختر الوقت"
+    "chooseTime": "اختر الوقت",
+    "chooseEventLocation": "اختر موقع الفعالية"
 }

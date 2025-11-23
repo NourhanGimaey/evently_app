@@ -1,4 +1,4 @@
-import 'package:evently/core/utils/app_colors.dart';
+import 'package:evently/core/theme/app_colors.dart';
 import 'package:evently/l10n/localization/app_localizations.dart';
 import 'package:evently/ui/onboarding/provider/language_provider.dart';
 import 'package:evently/ui/onboarding/provider/theme_provider.dart';
@@ -52,39 +52,38 @@ class CustomLanguageDropdown extends StatelessWidget {
             border: Border.all(color: AppColors.blue, width: 1),
             borderRadius: BorderRadius.circular(16),
           ),
-          child: DropdownButtonHideUnderline(
-            child: DropdownButton<Locale>(
-              value: currentLocale,
-              onChanged: (Locale? newLocale) {
-                if (newLocale != null) {
-                  languageProvider.toggleLanguage();
-                }
-              },
-              isExpanded: true,
-              selectedItemBuilder: (BuildContext context) {
-                return supportedLocales.map<Widget>((Locale locale) {
-                  return Text(
-                    _getLanguageDisplayName(context, locale),
-                    style: Theme.of(context).textTheme.titleMedium,
-                  );
-                }).toList();
-              },
-              items: supportedLocales.map<DropdownMenuItem<Locale>>((
-                Locale locale,
-              ) {
-                return DropdownMenuItem<Locale>(
-                  value: locale,
-                  child: Text(
-                    _getLanguageDisplayName(context, locale),
-                    style: const TextStyle(fontSize: 20),
-                  ),
+          child: DropdownButton(
+            borderRadius: BorderRadius.circular(16),
+            value: currentLocale,
+            onChanged: (Locale? newLocale) {
+              if (newLocale != null) {
+                languageProvider.toggleLanguage();
+              }
+            },
+            isExpanded: true,
+            selectedItemBuilder: (BuildContext context) {
+              return supportedLocales.map<Widget>((Locale locale) {
+                return Text(
+                  _getLanguageDisplayName(context, locale),
+                  style: Theme.of(context).textTheme.titleMedium,
                 );
-              }).toList(),
-              icon: const Icon(
-                Icons.arrow_drop_down,
-                color: AppColors.blue,
-                size: 32,
-              ),
+              }).toList();
+            },
+            items: supportedLocales.map<DropdownMenuItem<Locale>>((
+              Locale locale,
+            ) {
+              return DropdownMenuItem<Locale>(
+                value: locale,
+                child: Text(
+                  _getLanguageDisplayName(context, locale),
+                  style: const TextStyle(fontSize: 20),
+                ),
+              );
+            }).toList(),
+            icon: const Icon(
+              Icons.arrow_drop_down,
+              color: AppColors.blue,
+              size: 32,
             ),
           ),
         ),

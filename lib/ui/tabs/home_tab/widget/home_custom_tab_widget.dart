@@ -1,4 +1,4 @@
-import 'package:evently/core/utils/app_colors.dart';
+import 'package:evently/core/theme/app_colors.dart';
 import 'package:evently/ui/onboarding/provider/theme_provider.dart';
 import 'package:evently/ui/tabs/home_tab/provider/home_tab_provider.dart';
 import 'package:flutter/material.dart';

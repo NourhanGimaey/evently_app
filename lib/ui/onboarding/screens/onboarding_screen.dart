@@ -1,5 +1,5 @@
+import 'package:evently/core/theme/app_colors.dart';
 import 'package:evently/core/utils/app_assets.dart';
-import 'package:evently/core/utils/app_colors.dart';
 import 'package:evently/core/utils/app_routes.dart';
 import 'package:evently/core/widgets/custom_elevated_button.dart';
 import 'package:evently/l10n/localization/app_localizations.dart';
@@ -14,7 +14,10 @@ class OnboardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     AppLocalizations locale = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(title: Image.asset(AppImages.logo, width: 160)),
+      appBar: AppBar(
+        title: Image.asset(AppImages.logo, width: 160),
+        centerTitle: true,
+      ),
       body: Column(
         children: [
           Expanded(child: Image.asset(AppImages.onboarding)),

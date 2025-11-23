@@ -1,7 +1,7 @@
+import 'package:evently/core/theme/app_colors.dart';
 import 'package:evently/l10n/localization/app_localizations.dart';
 import 'package:evently/ui/onboarding/models/intro_screen.dart';
 import 'package:evently/core/utils/app_assets.dart';
-import 'package:evently/core/utils/app_colors.dart';
 import 'package:evently/core/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -15,7 +15,7 @@ class IntroScreen extends StatefulWidget {
 
 class _IntroScreenState extends State<IntroScreen> {
   final PageController _pageController = PageController();
-  int currentPageIndex = 0; 
+  int currentPageIndex = 0;
 
   @override
   void dispose() {
@@ -32,25 +32,11 @@ class _IntroScreenState extends State<IntroScreen> {
     AppLocalizations locale = AppLocalizations.of(context)!;
     bool isFirstPage = currentPageIndex == 0;
     bool isLastPage = currentPageIndex == IntroDetails.introDetails.length - 1;
-    
+
     return Scaffold(
       appBar: AppBar(
         title: Image.asset(AppImages.logo, width: 160),
-        actions: [
-          Visibility(
-            visible: !isLastPage,
-            child: TextButton(
-              onPressed: _navigateToLoginScreen,
-              child: Text(
-                locale.skip,
-                style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                  color: AppColors.blue, 
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(width: 8),
-        ],
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -66,18 +52,15 @@ class _IntroScreenState extends State<IntroScreen> {
                   });
                 },
                 itemBuilder: (context, index) {
-                  final IntroDetails currentDetail = IntroDetails.introDetails[index];
-                  
+                  final IntroDetails currentDetail =
+                      IntroDetails.introDetails[index];
+
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(
-                        child: Image.asset(
-                          currentDetail.imagePath,
-                        ),
-                      ),
+                      Expanded(child: Image.asset(currentDetail.imagePath)),
                       Text(
-                        currentDetail.getLocalizedTitle(context), 
+                        currentDetail.getLocalizedTitle(context),
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       const SizedBox(height: 16),
@@ -88,6 +71,18 @@ class _IntroScreenState extends State<IntroScreen> {
                     ],
                   );
                 },
+              ),
+            ),
+            Visibility(
+              visible: !isLastPage,
+              child: TextButton(
+                onPressed: _navigateToLoginScreen,
+                child: Text(
+                  locale.skip,
+                  style: Theme.of(
+                    context,
+                  ).textTheme.titleSmall!.copyWith(color: AppColors.blue),
+                ),
               ),
             ),
             const SizedBox(height: 16),
@@ -127,11 +122,11 @@ class _IntroScreenState extends State<IntroScreen> {
                     child: IconButton(
                       onPressed: () {
                         isLastPage
-                          ? _navigateToLoginScreen() 
-                          : _pageController.nextPage(
-                              duration: const Duration(milliseconds: 300),
-                              curve: Curves.easeInOut,
-                            );
+                            ? _navigateToLoginScreen()
+                            : _pageController.nextPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                              );
                       },
                       icon: const Icon(Icons.arrow_forward_outlined),
                     ),

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -9,14 +10,19 @@ class MapTabProvider extends ChangeNotifier {
     log('MapTabProvider initialized, getting location...');
     getUserLocation();
   }
-  final Location location = Location();
+
   late GoogleMapController mapController;
-  Set<Marker> markers = {};
 
   CameraPosition cameraPosition = const CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),
     zoom: 17,
   );
+  
+  Set<Marker> markers = {};
+
+  final Location location = Location();
+
+  late final StreamSubscription<LocationData> locationStream;
 
   Future<bool> _getLocationPermissoion() async {
     log('Checking location permission...');
