@@ -23,6 +23,7 @@ class EventManagementScreen extends StatelessWidget {
           locale.createEvent,
           style: Theme.of(context).textTheme.titleMedium,
         ),
+        centerTitle: true,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -161,7 +162,7 @@ class EventManagementScreen extends StatelessWidget {
               const SizedBox(height: 8),
               Text(locale.location),
               const SizedBox(height: 8),
-              PickLocationButton(provider: provider,),
+              PickLocationButton(provider: provider),
               const SizedBox(height: 16),
               CustomElevatedButton(
                 onPress: () {
@@ -169,18 +170,24 @@ class EventManagementScreen extends StatelessWidget {
                     Event(
                       title: provider.titleController.text,
                       description: provider.descriptionController.text,
-                      date: provider.currentDate!.millisecondsSinceEpoch,
-                      time: DateTime(
-                        0,
-                        0,
-                        0,
+                      eventDateTime: DateTime(
+                        provider.currentDate!.year,
+                        provider.currentDate!.month,
+                        provider.currentDate!.day,
                         provider.currentTime!.hour,
                         provider.currentTime!.minute,
                         0,
-                      ).millisecondsSinceEpoch,
-                      category: provider.selectedCategory,
+                      ),
+                      categoryId: provider.selectedCategory.id,
+                      categorynameEn: provider.selectedCategory.nameEn,
+                      categorynameAr: provider.selectedCategory.nameAr,
+                      categoryImagePath: provider.selectedCategory.imagePath,
+                      area: provider.area,
+                      city: provider.city,
+                      country: provider.country,
                     ),
                   );
+                  Navigator.pop(context);
                 },
                 text: locale.addEvent,
                 backgroundColor: AppColors.blue,

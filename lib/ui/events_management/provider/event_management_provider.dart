@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:evently/ui/events_management/models/category_model.dart';
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart' as geocoding;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:location/location.dart';
@@ -141,6 +142,9 @@ class EventManagementProvider extends ChangeNotifier {
   }
 
   LatLng? eventLocation;
+  String? area;
+  String? city;
+  String? country;
 
   void pickLocation(LatLng location) {
     eventLocation = location;
@@ -154,6 +158,22 @@ class EventManagementProvider extends ChangeNotifier {
         ),
       ),
     );
+    notifyListeners();
+  }
+
+  Future<void> convertLatLng() async {
+    if (eventLocation == null) return;
+    List<geocoding.Placemark> placemarks = await geocoding
+        .placemarkFromCoordinates(
+          eventLocation?.latitude ?? 0,
+          eventLocation?.longitude ?? 0,
+        );
+
+    if (placemarks.isNotEmpty) {
+      area = placemarks.first.locality ?? 'unknown';
+      city = placemarks.first.administrativeArea ?? 'unknown';
+      country = placemarks.first.country ?? 'unknown';
+    }
     notifyListeners();
   }
 
