@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:evently/ui/events_management/models/event.dart';
+import 'package:evently/ui/events_management/models/event_model.dart';
 
 class EventsFirebaseDatabase {
   static FirebaseFirestore db = FirebaseFirestore.instance;
@@ -24,4 +24,29 @@ class EventsFirebaseDatabase {
     }
   }
 
+  static Stream<QuerySnapshot<Event>> getEventStream(int categoryId) {
+    var ref = getCollectionReference();
+    if (categoryId == 0) {
+      return ref.snapshots();
+    }
+    return ref.where("categoryId", isEqualTo: categoryId).snapshots();
+  }
+
+  static Future<void> updateFavoriteState(Event event, String userId) async {
+    if ((event.favoritesList ?? []).contains(userId)) {
+      event.favoritesList?.removeWhere((e) => e == userId);
+    } else {
+      event.favoritesList = event.favoritesList ?? [];
+      event.favoritesList?.add(userId);
+    }
+
+    var doc = getCollectionReference().doc(event.id);
+    await doc.update(event.toFirestore());
+  }
+
+  static Stream<QuerySnapshot<Event>> getUserFavoritesList(String userId) {
+    return getCollectionReference()
+        .where('favoritesList', arrayContains: userId)
+        .snapshots();
+  }
 }

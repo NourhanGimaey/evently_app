@@ -1,7 +1,7 @@
 import 'package:evently/core/theme/app_colors.dart';
 import 'package:evently/core/utils/app_routes.dart';
-import 'package:evently/ui/home/provider/main_layout_provider.dart';
-import 'package:evently/ui/home/widgets/main_layout_bottom_appbar.dart';
+import 'package:evently/ui/main_layout/provider/main_layout_provider.dart';
+import 'package:evently/ui/main_layout/widgets/main_layout_bottom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -3,7 +3,7 @@ import 'package:evently/core/widgets/custom_elevated_button.dart';
 import 'package:evently/firebase/events_firebase_database.dart';
 import 'package:evently/l10n/localization/app_localizations.dart';
 import 'package:evently/ui/events_management/models/category_model.dart';
-import 'package:evently/ui/events_management/models/event.dart';
+import 'package:evently/ui/events_management/models/event_model.dart';
 import 'package:evently/ui/events_management/provider/event_management_provider.dart';
 import 'package:evently/ui/events_management/widgets/custom_text_form_field.dart';
 import 'package:evently/ui/events_management/widgets/pick_location_button.dart';

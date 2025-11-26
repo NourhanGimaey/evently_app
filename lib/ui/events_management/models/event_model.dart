@@ -12,6 +12,7 @@ class Event {
   String? area;
   String? city;
   String? country;
+  List<String>? favoritesList;
 
   Event({
     this.id,
@@ -25,6 +26,7 @@ class Event {
     this.area,
     this.city,
     this.country,
+    this.favoritesList,
   });
 
   Map<String, dynamic> toFirestore() {
@@ -40,6 +42,7 @@ class Event {
       'area': area,
       'city': city,
       'country': country,
+      'favoritesList': favoritesList,
     };
   }
 
@@ -58,6 +61,9 @@ class Event {
       area: json['area'] as String?,
       city: json['city'] as String?,
       country: json['country'] as String?,
+      favoritesList: (json['favoritesList'] as List<dynamic>?)
+          ?.map((item) => item as String)
+          .toList(),
     );
   }
 }
