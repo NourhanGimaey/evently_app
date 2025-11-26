@@ -1,3 +1,4 @@
+import 'package:evently/ui/events_management/provider/event_management_provider.dart';
 import 'package:evently/ui/tabs/favorite_tab/screens/favorite_tab.dart';
 import 'package:evently/ui/tabs/home_tab/screens/home_tab.dart';
 import 'package:evently/ui/tabs/maps_tab/provider/map_tab_provider.dart';
@@ -9,7 +10,10 @@ import 'package:provider/provider.dart';
 class MainLayoutProvider extends ChangeNotifier {
   int currentIndex = 0;
   List<Widget> tabs = [
-    const HomeTab(),
+    ChangeNotifierProvider(
+      create: (context) => EventManagementProvider(),
+      child: const HomeTab(),
+    ),
     ChangeNotifierProvider(
       create: (context) => MapTabProvider(),
       child: const MapTab(),

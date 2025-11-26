@@ -28,7 +28,9 @@ class PickLocationScreen extends StatelessWidget {
                     onTap: (location) async {
                       provider.pickLocation(location);
                       await provider.convertLatLng();
-                      Navigator.pop(context);
+                      if (context.mounted) {
+                        Navigator.pop(context);
+                      }
                     },
                   ),
                 );
